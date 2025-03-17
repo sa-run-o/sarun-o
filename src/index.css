@@ -1,0 +1,25 @@
+@import "tailwindcss";
+:root {
+}
+@theme {
+  --animate-typing: typing 4s steps(20, end) forwards,
+    blink-caret 0.5s step-end 10;
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: orange;
+    }
+  }
+}
