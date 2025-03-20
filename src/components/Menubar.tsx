@@ -48,6 +48,7 @@ const Menubar = () => {
             {DEFAULT_MENU.map((menu) => {
               return (
                 <div
+                  key={menu}
                   className=" text-black"
                   onClick={() => {
                     handleSelectPage(menu);
