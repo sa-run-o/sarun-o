@@ -16,12 +16,12 @@ const Home = () => {
             <source src={homeVideo} type="video/mp4" />
           </video>
         </div>
-        <div className="absolute right-4 top-1/3 w-[calc(50%-16px)] mix-blend-difference">
-          <div className="lg:flex lg:items-end">
-            <div className="text-2xl font-bold mr-3 lg:text-8xl ">SARUN</div>
-            <div className=" font-light text-xs">FULLSTACK DEVELOPER</div>
+        <div className="absolute top-1/2 px-4 md:right-4 md:top-1/3 md:w-[calc(50%-16px)] mix-blend-difference">
+          <div className="flex items-end">
+            <div className="text-5xl font-bold mr-3 lg:text-8xl ">SARUN</div>
+            <div className="font-light text-xs">FULLSTACK DEVELOPER</div>
           </div>
-          <div className="text-2xl font-bold lg:text-8xl">OLANKRANOK</div>
+          <div className="text-5xl font-bold lg:text-8xl">OLANKRANOK</div>
           <div className="text-sm bg-[rgba(255,255,255,0.1)] w-full border border-[rgba(209,213,219,0.3)] rounded-xl p-5 backdrop-blur-md lg:text-base">
             Building modern, interactive, and responsive web applications with
             React, TypeScript, and cutting-edge UI/UX design.

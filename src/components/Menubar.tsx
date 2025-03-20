@@ -1,12 +1,7 @@
 import { Menu } from "lucide-react";
 import { useState } from "react";
-type MENU_TYPE =
-  | "HOME"
-  | "ABOUT"
-  | "PROJECT"
-  | "SKILLS"
-  | "EXPERIENCE"
-  | "CONTACT";
+import { MENU_TYPE } from "../interfaces/menu.interface";
+import useMenuStore from "../stores/menu.store";
 const DEFAULT_MENU: MENU_TYPE[] = [
   "HOME",
   "ABOUT",
@@ -17,7 +12,7 @@ const DEFAULT_MENU: MENU_TYPE[] = [
 ];
 
 const Menubar = () => {
-  const [currentPage, setCurrentPage] = useState<MENU_TYPE>("HOME");
+  const { currentPage, setCurrentPage } = useMenuStore();
   const [isOpenMenuMobile, setIsOpenMenuMobile] = useState(false);
   const handleCloseMenu = () => {
     setIsOpenMenuMobile(false);
@@ -27,6 +22,7 @@ const Menubar = () => {
   };
   const handleSelectPage = (page: MENU_TYPE) => {
     setCurrentPage(page);
+    handleCloseMenu();
   };
   return (
     <div
@@ -49,7 +45,9 @@ const Menubar = () => {
               return (
                 <div
                   key={menu}
-                  className=" text-black"
+                  className={`text-black ${
+                    currentPage === menu ? "font-bold" : ""
+                  }`}
                   onClick={() => {
                     handleSelectPage(menu);
                   }}
@@ -73,7 +71,9 @@ const Menubar = () => {
         {DEFAULT_MENU.map((menu) => {
           return (
             <div
-              className="cursor-pointer relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[1px] after:transition-[width] after:duration-500 after:ease-in-out hover:after:w-full hover:after:bg-white hover:font-bold hover:text-lg duration-500"
+              className={`cursor-pointer relative ${
+                currentPage === menu ? "font-bold" : ""
+              } after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[1px] after:transition-[width] after:duration-500 after:ease-in-out hover:after:w-full hover:after:bg-white hover:font-bold hover:text-lg duration-500`}
               key={menu}
               onClick={() => {
                 handleSelectPage(menu);
